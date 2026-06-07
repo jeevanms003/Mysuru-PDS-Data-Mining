@@ -9,7 +9,7 @@ This repository contains a real-world, monthly taluk-level PDS distribution data
 ## 📂 Repository Contents
 
 * **`mysuru_ration_dataset.csv`**: A structured database of PDS transactions for the last 12 months (**June 2025 – May 2026**). It records monthly metrics for all **9 taluks** of Mysuru across **4 core commodities** (Rice, Wheat, Sugar, Ragi).
-* **`mysuru_ration_analysis.ipynb`**: A Jupyter Notebook executing data loading, statistical mining, correlation plotting, outlier detection, and rendering 15 visual insights using `pandas`, `seaborn`, `matplotlib`, and `scipy`.
+* **`mysuru_ration_analysis.ipynb`**: A Jupyter Notebook executing data loading, statistical mining, correlation plotting, outlier detection, and rendering 20 visual insights using `pandas`, `seaborn`, `matplotlib`, `scipy`, and `mlxtend`.
 
 ---
 
@@ -24,7 +24,7 @@ The analysis notebook investigates the Mysuru PDS ration distribution network ac
 4. **Most Fluctuating Taluk**: Find the taluk with the highest standard deviation in monthly lifting percentage.
 5. **FPS Workload Ranking**: Rank taluks by ration cards per Fair Price Shop.
 6. **eKYC Adoption Ranking**: Rank eKYC coverage percent by taluk.
-7. **Rice Allocation Ranking**: Identify the highest rice receiving taluk by total allotted volume.
+7. **Seasonality in Ration Lifting Success Rate**: Aggregate monthly lifting percentages to analyze cyclical patterns and temporal shifts.
 8. **Ragi-to-Rice Ratio Analysis**: Uncover dietary food preference patterns by comparing Ragi and Rice allotment volumes.
 
 ### B. Predictive Mining (Facts 9–12)
