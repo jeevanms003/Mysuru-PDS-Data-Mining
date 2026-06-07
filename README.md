@@ -17,33 +17,33 @@ This repository contains a real-world, monthly taluk-level PDS distribution data
 
 The analysis notebook investigates the Mysuru PDS ration distribution network across four main pillars of data mining:
 
-### A. Descriptive Data Mining (What the historical data shows)
-1. **Taluk Distribution Efficiency**: Ranks taluks by average ration lifting percentage (highest in Nanjangud, lowest in urban Mysuru).
-2. **Fair Price Shop (FPS) Workload Density**: Measures ration card density per shop (urban Mysuru has a high workload of 900+ cards/shop).
-3. **Active Card Utilization Rate**: Percent of registered cardholders who collect rations monthly (uncovering non-claim rates in urban sectors).
-4. **Member-level eKYC Verification Rate**: Tracks biometric Aadhaar validation compliance among active card members (exceeding 98.8% compliance district-wide).
-5. **Staple Foodgrain Allotment Trends**: Time-series comparison tracking monthly allotments of staples (Rice vs. Ragi).
-6. **Correlation Analysis**: A statistical correlation matrix correlating active shops, card volumes, member counts, and allotted quantities.
-7. **eKYC Pending Backlog Map**: Maps the absolute count of active beneficiaries with pending eKYC updates to identify target validation zones.
-8. **Regional Staple Preference (Ragi-to-Rice Ratio)**: Tracks dietary patterns showing higher Ragi preference in rural taluks like Hunsur and H.D. Kote.
-9. **Seasonality in Lifting Success Rate**: Tracks monthly transaction success rate shifts across Monsoons and festival seasons.
-10. **Grain Load Distributed per Active Card**: Measures the average grain load (in Quintals) distributed per active cardholder monthly.
+### A. Descriptive Data Mining (Facts 1–8)
+1. **Highest Distribution Efficiency Taluk**: Rank average lifting percentage by taluk to identify the top performer (Nanjangud).
+2. **Lowest Distribution Efficiency Taluk**: Identify the worst performing average lifting taluk (urban Mysuru).
+3. **Most Stable Taluk**: Find the taluk with the lowest standard deviation in monthly lifting percentage.
+4. **Most Fluctuating Taluk**: Find the taluk with the highest standard deviation in monthly lifting percentage.
+5. **FPS Workload Ranking**: Rank taluks by ration cards per Fair Price Shop.
+6. **eKYC Adoption Ranking**: Rank eKYC coverage percent by taluk.
+7. **Rice Allocation Ranking**: Identify the highest rice receiving taluk by total allotted volume.
+8. **Ragi-to-Rice Ratio Analysis**: Uncover dietary food preference patterns by comparing Ragi and Rice allotment volumes.
 
-### B. Predictive Data Mining (Forecasting and classification)
-11. **Lifting Percentage Prediction (Linear Regression)**: Predicts ration lifting success based on features like active FPS, cards, and biometric eKYC rates.
-12. **NFSA Grain Allotment Forecasting (Random Forest)**: Forecasts monthly allotment volumes utilizing an ensemble decision forest regressor.
-13. **High/Low Performance Segment Classification (Decision Tree)**: Classifies taluk-month performances and extracts administrative workload splitting criteria.
-14. **District-wide Monthly Allotment Forecasting (Time-Series)**: Uses rolling moving average trends to predict next-cycle NFSA grain footprint requirements.
+### B. Predictive Mining (Facts 9–12)
+9. **Predict Lifting Percentage**: Fit a Linear Regression model to identify which factors influence the lifting percentage most.
+10. **Predict High vs. Low Performing Taluk**: Train a Decision Tree classifier to discover rules that predict high-lifting performance.
+11. **Forecast Next Month Lifting %**: Model time-series trends to forecast next month's district-wide lifting percentage.
+12. **Predict Commodity Requirement**: Use time-series forecasting to estimate next month's rice demand for the district.
 
-### C. Clustering Data Mining (Grouping multi-dimensional performance patterns)
-15. **Taluk Performance Clustering (K-Means)**: Groups the 9 taluks into 3 clusters (High, Medium, Low Performers) based on administrative efficiency and workload metrics.
-16. **Optimal Cluster Count Selection (Elbow Method)**: Evaluates Within-Cluster Sum of Squares (WCSS) to statistically verify cluster groupings.
-17. **Cluster Visualization (PCA Dimensionality Reduction)**: Uses Principal Component Analysis to visualize taluk clusters in a 2D space, highlighting urban performance outliers.
+### C. Clustering Mining (Facts 13–16)
+13. **K-Means Taluk Segmentation**: Cluster taluks into High, Medium, and Low Performance categories.
+14. **Beneficiary Density Clusters**: Group taluks based on Cards, Members, and active FPS counts.
+15. **Digital Adoption Clusters**: Group taluks based on digital adoption metrics (eKYC % and Lifting %).
+16. **Commodity Consumption Clusters**: Group taluks based on Rice and Ragi allocation profiles.
 
-### D. Association Rule Mining (Finding behavioral patterns and correlations)
-18. **PDS Indicator Rule Generation (Apriori)**: Discovers strong behavioral rules between discretised features like `{High_eKYC} -> {High_Lifting}`.
-19. **Association Metric Validation (Support vs. Confidence vs. Lift)**: Validates rules using Support, Confidence, and Lift metric plots.
-20. **FP-Growth vs. Apriori Execution Comparison**: Compares rule consistency and execution performance, demonstrating the speedup of FP-Growth for PDS scale-up.
+### D. Association Rule Mining (Facts 17–20)
+17. **High eKYC ⇒ High Lifting**: Discover the strength of the association rule `High_eKYC -> High_Lifting` using Apriori.
+18. **High FPS Density ⇒ High Efficiency**: Discover the strength of the association rule `Low_Workload -> High_Lifting` (High FPS density means low workload).
+19. **Rural Taluk ⇒ High Participation**: Discover the strength of the association rule `Rural_Taluk -> High_Card_Utilization`.
+20. **High Rice Allocation ⇒ High Member Participation**: Discover the strength of the association rule `High_Rice_Allocation -> High_Members_Taken`.
 
 ---
 
